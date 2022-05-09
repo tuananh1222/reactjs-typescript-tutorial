@@ -1,0 +1,11 @@
+.App {
+  text-align: center;
+  background-color: rgb(67, 67, 189);
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+  width: 100vw;
+  height: 100vh;
+  flex-direction: column;
+}
+
+
