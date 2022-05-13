@@ -1,20 +1,20 @@
 import React, { useEffect, useState } from 'react';
 import './App.css';
-import FilterProduct from './Component/Demo/FilterProduct';
-import { Counter, TodoForm, TodoList } from './Component/Hooks/index';
+// import FilterProduct from './Component/Demo/FilterProduct';
+// import { Counter, TodoForm, TodoList } from './Component/Hooks/index';
 import Pagination from './Component/Hooks/Pagination/Pagination';
 import Post from './Component/Hooks/Posts/Post';
 import queryString from 'query-string'
 import Search from './Component/Hooks/Search/Search';
 
-const PRODUCTS = [
-  { category: 'Sporting Goods', price: '$49.99', stocked: true, name: 'Football' },
-  { category: 'Sporting Goods', price: '$9.99', stocked: true, name: 'Baseball' },
-  { category: 'Sporting Goods', price: '$29.99', stocked: false, name: 'Basketball' },
-  { category: 'Electronics', price: '$99.99', stocked: true, name: 'iPod Touch' },
-  { category: 'Electronics', price: '$399.99', stocked: false, name: 'iPhone 5' },
-  { category: 'Electronics', price: '$199.99', stocked: true, name: 'Nexus 7' }
-];
+// const PRODUCTS = [
+//   { category: 'Sporting Goods', price: '$49.99', stocked: true, name: 'Football' },
+//   { category: 'Sporting Goods', price: '$9.99', stocked: true, name: 'Baseball' },
+//   { category: 'Sporting Goods', price: '$29.99', stocked: false, name: 'Basketball' },
+//   { category: 'Electronics', price: '$99.99', stocked: true, name: 'iPod Touch' },
+//   { category: 'Electronics', price: '$399.99', stocked: false, name: 'iPhone 5' },
+//   { category: 'Electronics', price: '$199.99', stocked: true, name: 'Nexus 7' }
+// ];
 
 
 // function removeItem(index) {
@@ -53,7 +53,8 @@ function App() {
   
   const [filter, setFilter] = useState({
     _page: 1,
-    _limit: 10
+    _limit: 10,
+    
   });
   useEffect(() =>{
       const paramString = queryString.stringify(filter);
@@ -76,7 +77,11 @@ function App() {
      })
   }
   function handleFilterChange(newFilters){
-      console.log(newFilters);
+      setFilter({
+        ...filter,
+        _page: 1,
+        title_like: newFilters.searchItem
+      })
   }
   return (
     <>

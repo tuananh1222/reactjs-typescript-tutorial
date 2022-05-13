@@ -6,12 +6,10 @@ function Pagination(props) {
 
     const { _page, _limit, _totalRows } = pagination;
 
-    const _totalPage = Math.ceil(_totalRows/_limit);
+    const _totalPage = Math.ceil(_totalRows / _limit);
     function handlePageChange(newPage) {
         if (onPageChange) {
-            {
-                onPageChange(newPage)
-            }
+            onPageChange(newPage)
         }
     }
     return (
