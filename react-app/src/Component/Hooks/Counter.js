@@ -7,7 +7,10 @@ function Counter() {
     }
     useEffect(() =>{
         document.title = `You clicked ${count} times`;
-    })
+        return () =>{
+            <div>hi</div>
+        }
+    });
     return (
         <div>
             <p>You clicked {count} times</p>
